@@ -1,7 +1,8 @@
 import './App.css';
 import './styles/global.scss';
 import { Switch, Route } from "react-router-dom";
-import Header from './components/Header/Header.jsx';
+import Header from './components/Header/Header';
+import HomePage from './components/HomePage/HomePage';
 
 
 function App() {
@@ -9,23 +10,23 @@ function App() {
       return (
         <>
         <Header />
-          {/* <main>
+            <main>
               <Switch>
 
                   <Route path="/" exact>
                       <HomePage />
                   </Route>
 
-                  <Route path="/users/login">
+                  {/* <Route path="/users/login">
                       <LoginPage />
-                  </Route>
+                  </Route> */}
 
-                  <Route path="/users/sign-up">
+                  {/* <Route path="/users/sign-up">
                       <SignUpPage />
-                  </Route>
+                  </Route> */}
 
               </Switch>
-          </main> */}
+          </main> 
         </>
     );
   }

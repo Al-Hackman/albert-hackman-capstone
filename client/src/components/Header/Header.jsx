@@ -6,8 +6,6 @@ import './header.scss';
 
 
 
-
-
 function Header() {
     return (
         <nav className="navbar">

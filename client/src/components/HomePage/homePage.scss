@@ -1,0 +1,104 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+
+.hero{
+    background-image: url(../../assets/images/bg.jpg);
+    width: 100vw;
+    height: 300px;
+    background-attachment: fixed;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &__title {
+            width: 100%;
+            @include lower-header;
+            font-stretch: normal;
+            font-style: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color:$secondary;
+            z-index: 99;
+    }
+    &__sub-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 18px;
+            text-align: center;
+            z-index: 99;
+            width: 100%;
+            font-size: 14px;
+            color:$secondary;
+    }
+    &__action{
+            background-color: rgb(8, 55, 107);
+            color:$secondary;
+            width: 62px;
+            font-size: 0.5rem;
+            margin-top: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 18px;
+            text-align: center;
+            z-index: 99;
+    }
+
+
+}
+
+
+
+.main-container{
+    width: 100%;
+    height: 280px;
+    position: relative;
+
+    &__left{
+            color:$secondary;
+            background-color: rgb(8, 55, 107);
+            width: 55%;
+            height: 100%;
+            margin-top: 41px;
+            margin-left: 40px;
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+    }
+    &__right{
+            background-image: url(../../assets/images/bg.jpg);
+            position: absolute;
+            right: 40px;
+            top: 25px;
+            width: 45%;
+            height: 230px;
+            background-attachment: fixed;
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+    }
+    &__title{
+            width: 206px;
+            height: 19px;
+            font-family: Avenir;
+            font-size: 17px;
+            font-weight: 900;
+    }
+    &__content{
+            width: 214px;
+            font-size: 9px;
+            line-height: 1.56;
+            margin-top: 11px;
+            color:$secondary;
+    }
+
+
+}
