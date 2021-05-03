@@ -1,0 +1,48 @@
+@use './typography' as *;
+@use './variables' as *;
+
+
+// mixins for tablet and desktop(1280px & 1440px) breakpoints.
+@mixin tablet-up {
+    @media (min-width:$tablet) {
+        @content;
+    }
+}
+@mixin laptop-up {
+    @media (min-width:$laptop) {
+        @content;
+    }
+}
+// Did this because I wanted to implement the strick width on the photo gallery from the mockup.
+@mixin desktop-1440 {
+    @media (min-width:$desktop) {
+        @content;
+    }
+}
+
+
+
+// Mixins for various font sizes.
+@mixin header {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 700;
+}
+@mixin lower-header {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+@mixin sub-header {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+}
+@mixin paragraph {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+}
+
+
+
