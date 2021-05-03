@@ -3,6 +3,7 @@ import './styles/global.scss';
 import { Switch, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
+import SignIn from './components/SignIn/SignIn';
 
 
 function App() {
@@ -17,9 +18,9 @@ function App() {
                       <HomePage />
                   </Route>
 
-                  {/* <Route path="/users/login">
-                      <LoginPage />
-                  </Route> */}
+                  <Route path="/users/sign-in">
+                      <SignIn />
+                  </Route>
 
                   {/* <Route path="/users/sign-up">
                       <SignUpPage />
