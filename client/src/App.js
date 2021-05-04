@@ -6,6 +6,7 @@ import HomePage from './components/HomePage/HomePage';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
+import ServiceProviderSignUp from './components/ServiceProviderSignUp/ServiceProviderSignUp';
 
 
 function App() {
@@ -30,6 +31,10 @@ function App() {
 
                   <Route path="/users/sign-up">
                       <SignUp />
+                  </Route>
+
+                  <Route path="/service-providers/sign-up">
+                      <ServiceProviderSignUp />
                   </Route>
 
                   {/* <Route path="/users/sign-up">
