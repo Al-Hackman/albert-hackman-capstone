@@ -1,6 +1,5 @@
 import React from 'react';
 import './signUp.scss';
-import { Link } from 'react-router-dom';
 
 
 
