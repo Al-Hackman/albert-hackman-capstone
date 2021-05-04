@@ -20,7 +20,7 @@ function SignIn() {
                             Keep me Logged In</label>
                         <button className="sign-in__btn">LOGIN</button>
                         <div className="sign-in__bottom">
-                            <Link to="/users/forgot-password" className="sign-in__link forgot-password">Forgot Password?</Link>
+                            <Link to="/users/new-password" className="sign-in__link forgot-pwd">Forgot Password?</Link>
                             <Link to="/users/sign-up" className="sign-in__link signup">Sign Up</Link>
                         </div>
 

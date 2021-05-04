@@ -24,7 +24,7 @@ function Header() {
                         <span className="navbar__item">Contact</span>
                     </Link>
 
-                    <NavLink to="/login" activeClassName="navbar--active" className="navbar__btn-link">
+                    <NavLink to="/users/sign-in" activeClassName="navbar--active" className="navbar__btn-link">
                         <button className="navbar__login">Login</button>
                     </NavLink>
                 </div>
