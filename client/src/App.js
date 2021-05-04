@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import SignIn from './components/SignIn/SignIn';
+import SignUp from './components/SignUp/SignUp';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 
 
@@ -25,6 +26,10 @@ function App() {
 
                   <Route path="/users/new-password">
                       <ForgotPassword />
+                  </Route>
+
+                  <Route path="/users/sign-up">
+                      <SignUp />
                   </Route>
 
                   {/* <Route path="/users/sign-up">
