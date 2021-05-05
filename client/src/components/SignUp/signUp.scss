@@ -41,6 +41,12 @@
         -moz-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
         box-shadow: -1px 4px 28px 0px rgb(0 0 0 / 75%);
     }
+    &__error-message{
+        width: 100%;
+        @include lower-header;
+        color: rgba(255, 0, 0, 0.918);
+        margin: 0px 0px 20px;
+    }
 
     &__label{
         color: $secondary;
@@ -94,6 +100,9 @@
         }
         &__form-wrap{
             max-width: 600px;
+        }
+        &__error-message{
+            @include header;
         }
         &__display-wrap{
             display: flex;

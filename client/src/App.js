@@ -7,12 +7,14 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import ServiceProviderSignUp from './components/ServiceProviderSignUp/ServiceProviderSignUp';
+import { AuthProvider } from './contexts/AuthContext'
 
 
 function App() {
 
       return (
         <>
+        <AuthProvider>
         <Header />
             <main>
               <Switch>
@@ -43,6 +45,7 @@ function App() {
 
               </Switch>
           </main> 
+          </AuthProvider>
         </>
     );
   }
