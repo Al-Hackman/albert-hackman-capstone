@@ -7,7 +7,8 @@ import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import ServiceProviderSignUp from './components/ServiceProviderSignUp/ServiceProviderSignUp';
-import { AuthProvider } from './contexts/AuthContext'
+import { AuthProvider } from './contexts/AuthContext';
+import Dashboard from './components/Dashboard/Dashboard';
 
 
 function App() {
@@ -37,6 +38,10 @@ function App() {
 
                   <Route path="/service-providers/sign-up">
                       <ServiceProviderSignUp />
+                  </Route>
+
+                  <Route path="/users/dashboard">
+                      <Dashboard />
                   </Route>
 
                   {/* <Route path="/users/sign-up">
