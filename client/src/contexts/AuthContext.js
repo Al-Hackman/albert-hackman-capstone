@@ -26,6 +26,9 @@ export function AuthProvider({ children }) {
         return auth.signOut()
     }
 
+    function resetPassword() {
+        return auth.sendPasswordResetEmail()
+    }
 
 
     useEffect(() => {
@@ -42,7 +45,8 @@ export function AuthProvider({ children }) {
         currentUser,
         signin,
         signup,
-        logout
+        logout,
+        resetPassword
     }
 
     return (

@@ -41,7 +41,7 @@ function SignIn() {
                 <div className="sign-in__form-wrap">
                     <form onSubmit={handleSubmit}  className= "sign-in__form" encType="multipart/form-data">
                         <label className="sign-in__label">Email</label>
-                        <input type="email" className="sign-in__input" ref={emailRef}placeholder="email@findme.com"/>
+                        <input type="email" className="sign-in__input" ref={emailRef} placeholder="email@findme.com"/>
                         <label className="sign-in__label">Password</label>
                         <input type="password" className="sign-in__input" ref={passwordRef} placeholder="password"/>
                         <label className="sign-in__checkbox">
