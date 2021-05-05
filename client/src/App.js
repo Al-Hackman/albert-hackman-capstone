@@ -9,6 +9,8 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import ServiceProviderSignUp from './components/ServiceProviderSignUp/ServiceProviderSignUp';
 import { AuthProvider } from './contexts/AuthContext';
 import Dashboard from './components/Dashboard/Dashboard';
+import PrivateRoute from './PrivateRoute';
+
 
 
 function App() {
@@ -40,9 +42,7 @@ function App() {
                       <ServiceProviderSignUp />
                   </Route>
 
-                  <Route path="/users/dashboard">
-                      <Dashboard />
-                  </Route>
+                  <PrivateRoute exact path="/users/dashboard" component={Dashboard} />
 
                   {/* <Route path="/users/sign-up">
                       <SignUpPage />

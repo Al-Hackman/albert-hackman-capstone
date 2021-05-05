@@ -19,7 +19,7 @@ function SignUp() {
     const history = useHistory()
 
 
-    async function handleSubmit (e) {
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         if (passwordRef.current.value !== passwordConfirmRef.current.value){
@@ -29,7 +29,7 @@ function SignUp() {
         try {
             setError("")
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            signup(emailRef.current.value, passwordRef.current.value)
             history.push("/users/dashboard")
         } catch {
             setError('Failed to create an Account')

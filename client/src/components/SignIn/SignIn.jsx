@@ -16,14 +16,14 @@ function SignIn() {
     const history = useHistory()
 
 
-    async function handleSubmit (e) {
+    const handleSubmit = (e) => {
         e.preventDefault()
 
         
         try {
             setError("")
             setLoading(true)
-            await signin(emailRef.current.value, passwordRef.current.value)
+            signin(emailRef.current.value, passwordRef.current.value)
             history.push("/users/dashboard")
         } catch {
             setError('Failed, please check email and password')
