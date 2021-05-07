@@ -29,7 +29,7 @@ function SignUp() {
         try {
             setError("")
             setLoading(true)
-            signup(emailRef.current.value, passwordRef.current.value)
+            signup(emailRef.current.value, passwordRef.current.value, lastNameRef.current.value, otherNamesRef.current.value, telephoneRef.current.value)
             history.push("/users/dashboard")
         } catch {
             setError('Failed to create an Account')
@@ -45,7 +45,6 @@ function SignUp() {
                 <h1 className="sign-up__title">SIGN UP TO GET STARTED</h1>
                 <div className="sign-up__form-wrap">
                     <form onSubmit={handleSubmit} className= "sign-up__form" encType="multipart/form-data">
-                        {/* <h4>{currentUser.email}</h4> */}
                         <h4 className="sign-up__error-message">{error}</h4>
                         <div className="sign-up__display-wrap">
                             <div className="sign-up__input-wrap">

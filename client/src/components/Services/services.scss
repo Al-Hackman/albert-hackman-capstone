@@ -1,0 +1,72 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+
+
+.services{
+    padding: 2rem 1rem 5rem;
+
+    &__title{
+        @include header;
+        margin: 0px;
+    }
+    &__sub-title{
+        @include sub-header;
+        margin: 2rem 0px;
+    }
+   
+    &__card{
+        width:280px;
+        height: 100px;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: rgb($primary, 0.66) 0 30px 60px 0;
+        margin-bottom: 1.5rem;
+                   
+    }
+    &__card-image{
+        width: 30%;
+        height: 100px;
+        border-radius: 10px 0px 0px 10px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        background-color: #333;
+        overflow: hidden;
+    }
+    &__card1{
+        background-image: url(../../assets/images/carpentry.jpg);
+    }
+    &__card2{
+        background-image: url(../../assets/images/electrician.jpg);
+    }
+    &__card3{
+        background-image: url(../../assets/images/gardener.jpg);
+    }
+    &__card4{
+        background-image: url(../../assets/images/mechanic.jpg);
+    }
+    &__card5{
+        background-image: url(../../assets/images/plumbing.jpg);
+    }
+
+    @include tablet-up{
+        padding: 0px 1.5rem;
+
+        &__card-wrap{
+            // width: 250px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            
+
+        }
+
+
+    }
+
+
+
+
+}

@@ -1,22 +1,31 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
-
+import * as FaIcons from 'react-icons/fa'
+import * as AiIcons from 'react-icons/ai'
+import { SidebarData } from '../SidebarData/SidebarData'
+import './dashboard.scss'
+import { IconContext } from 'react-icons'
 
 
 
 function Dashboard() {
 
-    const { logout } = useAuth()
+    const { logout, thisCurrentUser } = useAuth()
     const [error, setError] = useState('')
+    const [sidebar, setSidebar] = useState(false)
     const history = useHistory()
 
-    const handleLogout = () => {
+
+    console.log(thisCurrentUser)
+
+    async function handleLogout() {
         setError('')
 
         try {
             logout()
             history.push('/users/sign-in')
+            // await thisCurrentUser(uid)
 
         } catch {
             setError('Could not log out')
@@ -24,11 +33,44 @@ function Dashboard() {
 
     }
 
+    const showSidebar = () =>setSidebar(!sidebar)
+
 
     return (
         <div>
-            <h2>Welcome to FindMe</h2>
-            <button onClick={handleLogout}>Logout</button>
+            <div>
+                {/* <h2>Welcome to FindMe</h2> */}
+                {/* {useAuth.uid} */}
+                {/* <h4>{thisCurrentUser}</h4> */}
+                {/* <button onClick={handleLogout}>Logout</button> */}
+            </div>
+            <IconContext.Provider value={{color:'#fff'}}>
+            <div className="navbar">
+                <Link to="#" className="navbar__menu-bars">
+                    <FaIcons.FaBars onClick={showSidebar} />
+                </Link>
+                <button onClick={handleLogout}>Logout</button>
+            </div>
+            <nav className={sidebar ? 'navbar__nav-menu active' : 'navbar__nav-menu'}>
+                <ul className="navbar__nav-menu-items" onClick={showSidebar}>
+                    <li className="navbar__toggle">
+                        <Link to="#" className="navbar__menu-bars">
+                            <AiIcons.AiOutlineClose />
+                        </Link>
+                    </li>
+                    {SidebarData.map((item,index) => {
+                        return (
+                            <li key={index} className={item.cName}>
+                                <Link to={item.path}>
+                                    {item.icon}
+                                    <span>{item.title}</span>
+                                </Link>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </nav>
+            </IconContext.Provider>
         </div>
     )
 }

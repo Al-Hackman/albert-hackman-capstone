@@ -10,6 +10,7 @@ import ServiceProviderSignUp from './components/ServiceProviderSignUp/ServicePro
 import { AuthProvider } from './contexts/AuthContext';
 import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './PrivateRoute';
+import Services from './components/Services/Services';
 
 
 
@@ -43,6 +44,12 @@ function App() {
                   </Route>
 
                   <PrivateRoute exact path="/users/dashboard" component={Dashboard} />
+
+                  {/* <Route path="/services">
+                      <Services />
+                  </Route> */}
+
+                  <Route path="/services" component={Services} />
 
                   {/* <Route path="/users/sign-up">
                       <SignUpPage />

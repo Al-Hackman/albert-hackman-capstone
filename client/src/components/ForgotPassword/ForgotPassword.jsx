@@ -20,7 +20,7 @@ function ForgotPassword() {
 
         
         try {
-            setMessage('')
+            setMessage("")
             setError("")
             setLoading(true)
             resetPassword(emailRef.current.value)
@@ -41,6 +41,7 @@ function ForgotPassword() {
                 <div className="forgot-password__form-wrap">
                     <form onSubmit={handleSubmit}  className= "forgot-password__form" encType="multipart/form-data">
                         <h4 className="forgot-password__error-message">{error}</h4>
+                        <h4 className="forgot-password__success-message">{message}</h4>
                         <label className="forgot-password__label">Email</label>
                         <input type="email" className="forgot-password__input" ref={emailRef} placeholder="email@findme.com"/>
                         <p className="forgot-password__note">No problem! Enter the email address associated with your account and we'll email you password reset instructions.</p>

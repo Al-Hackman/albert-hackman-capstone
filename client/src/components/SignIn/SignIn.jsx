@@ -16,14 +16,15 @@ function SignIn() {
     const history = useHistory()
 
 
-    const handleSubmit = (e) => {
+
+    async function handleSubmit(e) {
         e.preventDefault()
 
         
         try {
             setError("")
             setLoading(true)
-            signin(emailRef.current.value, passwordRef.current.value)
+            await signin(emailRef.current.value, passwordRef.current.value)
             history.push("/users/dashboard")
         } catch {
             setError('Failed, please check email and password')
@@ -40,6 +41,8 @@ function SignIn() {
                 <h1 className="sign-in__title">LOGIN HERE</h1>
                 <div className="sign-in__form-wrap">
                     <form onSubmit={handleSubmit}  className= "sign-in__form" encType="multipart/form-data">
+                        {/* <h4>{auth.dkM3THUS2lQQLEruciYievKj5eN2}</h4> */}
+                        <h4 className="sign-in__error-message">{error}</h4>
                         <label className="sign-in__label">Email</label>
                         <input type="email" className="sign-in__input" ref={emailRef} placeholder="email@findme.com"/>
                         <label className="sign-in__label">Password</label>
@@ -61,3 +64,4 @@ function SignIn() {
 }
 
 export default SignIn;
+
