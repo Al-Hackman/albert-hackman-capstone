@@ -6,6 +6,9 @@ import ServiceProviderSignUp from '../ServiceProviderSignUp/ServiceProviderSignU
 import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../../firebase'
 import './requestService.scss'
+import masonary from '../../assets/images/masonary.jpg'
+import carpentry from '../../assets/images/carpentry.jpg'
+
 // import AddCategory from '../AddCategory/AddCategory'
 // import { useEffect } from 'react'
 require('react-dom');
@@ -78,13 +81,16 @@ const RequestService = () => {
                
                 <Link to={'/app/request-service/'+s.id}  key={index} className="reqservice__link">
                 <div className="reqservice__card">
-                    <div className="reqservice__image"></div>
+                    <div className="reqservice__category-image">
+                        <img src={s.service.categoryName.toLowerCase() === 'masonary' ? masonary : s.service.categoryName.toLowerCase() === 'carpentry' ? carpentry : ''} alt={ s.service.categoryName} className="reqservice__image"/>
+                        <span className="reqservice__category-main">{ s.service.categoryName}</span> 
+                    </div>
                     <div className="reqservice__title-wrap">
                         <span className="reqservice__name">{s.service.companyName}</span>
                         <span className="reqservice__category">{s.service.telephone}</span>
-                        <span className="reqservice__category">{ s.service.categoryName} </span>
+                        {/* <span className="reqservice__category">{ s.service.categoryName} </span> */}
                         <div className="reqservice__bottom-wrap">
-                            <span className="reqservice__category">{s.service.city}</span>
+                            <span className="reqservice__city">{s.service.city}</span>
                             <span className="reqservice__rate">{s.service.rate}/hr</span>
                         </div>
                         {/* <span className="service__category">{ catList.filter(c => { return c.id == s.service.id})}</span> */}
@@ -104,7 +110,8 @@ const RequestService = () => {
             {/* {showModal ? <ServiceProviderSignUp /> : ''}; */}
             {/* {showModal ? <AddCategory /> : <CategoryList />} */}
             {/* {sModal} */}
-
+            <h1 className="reqservice__page-title">FindMe let's you request for Services in real time</h1>
+            
             {serviceList ? serviceList.map(renderService) :''}
             {/* <ReactBootStrap.Table>
                 <thead>

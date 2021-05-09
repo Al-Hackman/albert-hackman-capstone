@@ -37,7 +37,7 @@ export const SidebarData = [
     subNav: [
         {
             title: 'Add a Service',
-            path: "/#",
+            path: "/app/service-provider",
         },{
             title: 'Services Provided by Me',
             path: "/#",
