@@ -1,12 +1,13 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
-.navbar{
+.navvbar{
 background-color:$primary;
 height: 80px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+// position: sticky;
 
 &__menu-bars{
     margin-left: 16px;

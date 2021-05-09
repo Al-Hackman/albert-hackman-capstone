@@ -45,16 +45,16 @@ function Dashboard() {
                 {/* <button onClick={handleLogout}>Logout</button> */}
             </div>
             <IconContext.Provider value={{color:'#fff'}}>
-            <div className="navbar">
-                <Link to="#" className="navbar__menu-bars">
+            <div className="navvbar">
+                <Link to="#" className="navvbar__menu-bars">
                     <FaIcons.FaBars onClick={showSidebar} />
                 </Link>
                 <button onClick={handleLogout}>Logout</button>
             </div>
-            <nav className={sidebar ? 'navbar__nav-menu active' : 'navbar__nav-menu'}>
-                <ul className="navbar__nav-menu-items" onClick={showSidebar}>
-                    <li className="navbar__toggle">
-                        <Link to="#" className="navbar__menu-bars">
+            <nav className={sidebar ? 'navvbar__nav-menu active' : 'navvbar__nav-menu'}>
+                <ul className="navvbar__nav-menu-items" onClick={showSidebar}>
+                    <li className="navvbar__toggle">
+                        <Link to="#" className="navvbar__menu-bars">
                             <AiIcons.AiOutlineClose />
                         </Link>
                     </li>
@@ -75,5 +75,5 @@ function Dashboard() {
     )
 }
 
-export default Dashboard
+export default Dashboard;
 

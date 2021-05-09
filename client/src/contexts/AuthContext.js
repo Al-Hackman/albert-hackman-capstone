@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
         auth.createUserWithEmailAndPassword(email, password)
         .then(u => {
             console.log('created user ', u)
-            writeUserData(u.user.userId, lastName, otherNames, telephone)
+            writeUserData(u.user.uid, lastName, otherNames, telephone)
         }).catch(err =>{
             console.log('user creation err', err)
         })
@@ -55,7 +55,8 @@ export function AuthProvider({ children }) {
     }
 
     function writeUserData(userId, lastName, otherNames, telephone) {
-        firebase.database().ref('users/' + userId).set({
+         firebase.database().ref('users/').push({
+            userId: userId,
             userLastName: lastName,
             userOtherNames: otherNames,
             userTelephone: telephone
@@ -65,6 +66,7 @@ export function AuthProvider({ children }) {
             console.log('user details err', err)
         }})
     }
+    
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {

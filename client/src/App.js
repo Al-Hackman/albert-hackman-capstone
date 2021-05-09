@@ -1,6 +1,6 @@
 import './App.css';
 import './styles/global.scss';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import SignIn from './components/SignIn/SignIn';
@@ -11,15 +11,35 @@ import { AuthProvider } from './contexts/AuthContext';
 import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './PrivateRoute';
 import Services from './components/Services/Services';
+import CategoryList from './components/CategoryList/CategoryList'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ServiceList from './components/ServiceList/ServiceList'
+import Requestservice from './components/RequestService/RequestService'
+import BookService from './components/BookService/BookService'
+import ServiceProvided from './components/ServiceProvided/ServiceProvided'
+import {withRouter} from 'react-router'
 
 
 
-function App() {
+const exclusionArray = [
+  '/users/dashboard',
+  '/users/dashboard/services',
+  "/app/categories",
+  "/app/request-service",
+  "/app/service-provider",
+  "/app/request-service/:id",
+  "/app/provided-service"  
+]
+
+
+
+function App( {location} ) {
 
       return (
         <>
+        {exclusionArray.indexOf(location.pathname) < 0 && <Header />}
         <AuthProvider>
-        <Header />
+        
             <main>
               <Switch>
 
@@ -39,9 +59,11 @@ function App() {
                       <SignUp />
                   </Route>
 
-                  <Route path="/service-providers/sign-up">
-                      <ServiceProviderSignUp />
+                  <Route path="/app/services">
+                      <ServiceList />
                   </Route>
+
+                  
 
                   <PrivateRoute exact path="/users/dashboard" component={Dashboard} />
 
@@ -49,17 +71,26 @@ function App() {
                       <Services />
                   </Route> */}
 
-                  <Route path="/services" component={Services} />
+                  <PrivateRoute exact path="/users/dashboard/services" component={Services} />
 
-                  {/* <Route path="/users/sign-up">
-                      <SignUpPage />
-                  </Route> */}
+                  <Route path="/app/categories" component={CategoryList} />
 
-              </Switch>
+                   <Route exact path="/app/request-service" component={Requestservice} />
+
+                   <Route path="/app/service-provider" component={ServiceProviderSignUp} />
+                     
+
+                    <Route path="/app/request-service/:id"
+                    render={(routerProps) => <BookService  {...routerProps}/>}/>
+
+                    <Route path="/app/provided-service" component={ServiceProvided} />
+
+
+                </Switch>
           </main> 
           </AuthProvider>
         </>
     );
   }
 
-export default App;
+export default withRouter(App);
