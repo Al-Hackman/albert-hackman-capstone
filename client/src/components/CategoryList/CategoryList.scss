@@ -1,0 +1,15 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+
+
+.category-list{
+    padding: 2rem 1rem;
+
+    &__button{
+        border-radius: 4px;
+        box-shadow: 5px 5px grey;
+        margin-bottom: 3rem;
+    }
+}
+

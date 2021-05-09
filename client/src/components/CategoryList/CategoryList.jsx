@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import * as ReactBootStrap from 'react-bootstrap'
 import firebaseDb from 'firebase'
 import AddCategory from '../AddCategory/AddCategory.jsx';
+import './CategoryList.scss'
 // import AddCategory from '../AddCategory/AddCategory'
 // import { useEffect } from 'react'
 require('react-dom');
@@ -71,13 +72,18 @@ const CategoryList = () => {
             // if (showModal) {
             // modal = <LoginModal />;
             // }
-            <>
-            {showModal ? <AddCategory /> : ''};
+            <div className="table-responsive category-list">
+            {showModal ? <AddCategory /> : ''}
             {/* {showModal ? <AddCategory /> : <CategoryList />} */}
             {/* {sModal} */}
-
+            <button
+              onClick={showModall}
+              className="category-list__button"
+            >
+              Add New Category
+            </button>
             
-            <ReactBootStrap.Table>
+            <ReactBootStrap.Table className="table table-hover table-striped category-list__table">
                 <thead>
                     <tr>
                     <th>Title</th>
@@ -89,14 +95,9 @@ const CategoryList = () => {
                 </tbody>
         </ReactBootStrap.Table>
 
-            <button
-              onClick={showModall}
-              className="login__button"
-            >
-              log in
-            </button>
+            
             {/* {showModal} */}
-             </>
+             </div>
         
         );
 }

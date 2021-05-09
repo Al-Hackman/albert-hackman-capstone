@@ -6,6 +6,7 @@ import CRUDTable, { Fields, Field, CreateForm, UpdateForm, DeleteForm } from "re
 import './addCategory.scss'
 import React, { useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import CategoryList from '../CategoryList/CategoryList';
 
 
 function AddCategory() {
@@ -15,6 +16,15 @@ function AddCategory() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+    const [showModal, setShowModal] = useState(true);
+
+
+
+    // const showModall = (event) => {
+    // // event.preventDefault();
+    // setShowModal(false);
+    // // <CategoryList />
+    //  };
 
 
     const handleAddCategory = (e) => {
@@ -28,11 +38,13 @@ function AddCategory() {
                 title: titleRef.current.value,
                 description: descriptionRef.current.value
             }).then(task=>{
+                    // setShowModal(false);
+                    history.push("/app/categories")
                     console.log('task details added', task)
                 }).catch(err => {{
                     console.log('task details err', err)
                 }})
-            // history.push("/users/dashboard")
+            // history.push("/app/categories")
             
         } catch {
             setError('Failed to create an Account')
@@ -43,9 +55,11 @@ function AddCategory() {
     
 
     return (
+        
         <section className="addCat">
+            {/* {!showModal ? <CategoryList /> : ''} */}
             <div className="addCat__wrap">
-                <h1 className="addCat__title">CATEGORY LIST</h1>
+                <h1 className="addCat__title">Add Category</h1>
                 <div className="addCat__form-wrap">
                     <form onSubmit={handleAddCategory} className= "addCat__form" encType="multipart/form-data">
                         <h4 className="addCat__error-message">{error}</h4>
@@ -56,7 +70,7 @@ function AddCategory() {
                             </div>
                             <div className="addCat__input-wrap">
                                 <label className="addCat__label">Description</label>
-                                <input type="text" className="addCat__input" ref={descriptionRef} placeholder="Description"/>
+                                <textarea rows="3" className="addCat__textarea" ref={descriptionRef} placeholder="Description"></textarea>
                             </div>
                         </div>
                         

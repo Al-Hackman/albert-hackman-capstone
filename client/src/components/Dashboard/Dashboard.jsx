@@ -3,9 +3,12 @@ import { useAuth } from '../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa'
 import * as AiIcons from 'react-icons/ai'
+
 import { SidebarData } from '../SidebarData/SidebarData'
 import './dashboard.scss'
 import { IconContext } from 'react-icons'
+import styled from 'styled-components'
+import SubMenu from '../SidebarData/SubMenu';
 
 
 
@@ -49,24 +52,25 @@ function Dashboard() {
                 <Link to="#" className="navvbar__menu-bars">
                     <FaIcons.FaBars onClick={showSidebar} />
                 </Link>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout} className="navvbar__logout">Logout</button>
             </div>
             <nav className={sidebar ? 'navvbar__nav-menu active' : 'navvbar__nav-menu'}>
-                <ul className="navvbar__nav-menu-items" onClick={showSidebar}>
+                <ul className="navvbar__nav-menu-items" >
                     <li className="navvbar__toggle">
-                        <Link to="#" className="navvbar__menu-bars">
+                        <Link to="#" className="navvbar__menu-bars" onClick={showSidebar}>
                             <AiIcons.AiOutlineClose />
                         </Link>
                     </li>
                     {SidebarData.map((item,index) => {
-                        return (
-                            <li key={index} className={item.cName}>
-                                <Link to={item.path}>
-                                    {item.icon}
-                                    <span>{item.title}</span>
-                                </Link>
-                            </li>
-                        )
+                        return <SubMenu item={item} key={index} onClick={showSidebar}/>
+                        // (
+                        //     <li key={index} className={item.cName}>
+                        //         <Link to={item.path}>
+                        //             {item.icon}
+                        //             <span>{item.title}</span>
+                        //         </Link>
+                        //     </li>
+                        // )
                     })}
                 </ul>
             </nav>

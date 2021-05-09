@@ -5,11 +5,13 @@ import AddService from '../AddService/AddService';
 import ServiceProviderSignUp from '../ServiceProviderSignUp/ServiceProviderSignUp'
 import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../../firebase'
+import './requestService.scss'
 // import AddCategory from '../AddCategory/AddCategory'
 // import { useEffect } from 'react'
 require('react-dom');
 window.React2 = require('react');
 console.log(window.React1 === window.React2);
+
 
 
 
@@ -74,14 +76,17 @@ const RequestService = () => {
         const renderService = (s, index) => {
             return(
                
-                <Link to={'/app/request-service/'+s.id}  key={index}>
-                <div className="service__card">
-                    <div className="service__image"></div>
-                    <div className="service__title-wrap">
-                        <span className="service__name">{s.service.companyName}</span>
-                        <span className="service__rate">{s.service.rate}</span>
-                        <span className="service__category">{s.service.telephone}</span>
-                        <span className="service__category">{ s.service.categoryName} </span>
+                <Link to={'/app/request-service/'+s.id}  key={index} className="reqservice__link">
+                <div className="reqservice__card">
+                    <div className="reqservice__image"></div>
+                    <div className="reqservice__title-wrap">
+                        <span className="reqservice__name">{s.service.companyName}</span>
+                        <span className="reqservice__category">{s.service.telephone}</span>
+                        <span className="reqservice__category">{ s.service.categoryName} </span>
+                        <div className="reqservice__bottom-wrap">
+                            <span className="reqservice__category">{s.service.city}</span>
+                            <span className="reqservice__rate">{s.service.rate}/hr</span>
+                        </div>
                         {/* <span className="service__category">{ catList.filter(c => { return c.id == s.service.id})}</span> */}
                     </div>
                 </div>
@@ -95,7 +100,7 @@ const RequestService = () => {
             // if (showModal) {
             // modal = <LoginModal />;
             // }
-            <>
+            <div className="reqservice">
             {/* {showModal ? <ServiceProviderSignUp /> : ''}; */}
             {/* {showModal ? <AddCategory /> : <CategoryList />} */}
             {/* {sModal} */}
@@ -124,7 +129,7 @@ const RequestService = () => {
               log in
             </button> */}
             {/* {showModal} */}
-             </>
+             </div>
         
         );
 }
