@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import firebase from 'firebase'
 import * as ReactBootStrap from 'react-bootstrap'
+import './serviceProvided.scss'
 
 
 
@@ -96,11 +97,11 @@ function ServiceProvided() {
 
     return (
    
-            <div className="table-responsive">
+            <div className="table-responsive service-provided">
             {/* {showModal ? <AddCategory /> : ''}; */}
             
             
-            <ReactBootStrap.Table className= "table table-hover table-striped" >
+            <ReactBootStrap.Table className= "table table-hover table-striped service-provided__table" >
                 <thead>
                     <tr>
                     <th>Date</th>

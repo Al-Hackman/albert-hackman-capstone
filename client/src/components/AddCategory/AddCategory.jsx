@@ -5,7 +5,7 @@ import CRUDTable, { Fields, Field, CreateForm, UpdateForm, DeleteForm } from "re
 // import React, { useRef } from 'react';
 import './addCategory.scss'
 import React, { useRef, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import CategoryList from '../CategoryList/CategoryList';
 
 
@@ -20,7 +20,7 @@ function AddCategory() {
 
 
 
-    // const showModall = (event) => {
+    // function showModall() {
     // // event.preventDefault();
     // setShowModal(false);
     // // <CategoryList />
@@ -33,6 +33,7 @@ function AddCategory() {
         try {
             setError("")
             setLoading(true)
+            setShowModal(true)
             // signup(emailRef.current.value, passwordRef.current.value, lastNameRef.current.value, otherNamesRef.current.value, telephoneRef.current.value)
             firebaseDb.database().ref('serviceCategories/').push({
                 title: titleRef.current.value,
@@ -50,14 +51,16 @@ function AddCategory() {
             setError('Failed to create an Account')
         } 
 
-        setLoading(false)       
+        setLoading(false);    
+        
+        setShowModal(false);
     }
     
 
     return (
         
         <section className="addCat">
-            {/* {!showModal ? <CategoryList /> : ''} */}
+            {/* {showModal ? <AddCategory /> : ''}  */}
             <div className="addCat__wrap">
                 <h1 className="addCat__title">Add Category</h1>
                 <div className="addCat__form-wrap">

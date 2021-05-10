@@ -29,7 +29,6 @@ const exclusionArray = [
   "/app/service-provider",
   "/app/request-service/:id",
   "/app/provided-service"
-
 ]
 
 
@@ -74,7 +73,7 @@ function App( {location} ) {
 
                   <PrivateRoute exact path="/users/dashboard/services" component={Services} />
 
-                  <Route path="/app/categories" component={CategoryList} />
+                  <PrivateRoute path="/app/categories" component={CategoryList} />
 
                    <Route exact path="/app/request-service" component={Requestservice} />
 
