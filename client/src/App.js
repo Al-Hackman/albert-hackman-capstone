@@ -28,6 +28,7 @@ const exclusionArray = [
   "/app/request-service",
   "/app/service-provider",
   "/app/request-service/:id",
+  "/app/provided-service"
 
 ]
 

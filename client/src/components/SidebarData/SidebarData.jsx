@@ -7,7 +7,7 @@ import * as RiIcons from 'react-icons/ri'
 
 export const SidebarData = [
 {
-    title: 'Manage Request',
+    title: 'My Requests',
     path: "#",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
@@ -15,20 +15,17 @@ export const SidebarData = [
     cName: "nav-text",
     subNav: [
         {
-            title: 'View All Services',
+            title: 'Request Service',
             path: "/app/request-service",
         },{
-            title: 'Request Services',
-            path: "/#",
-        },{
-            title: 'View All Requested Services',
+            title: 'My Requested Services',
             path: "#",
         }
     ]
 },
 
 {
-    title: 'Manage Services',
+    title: 'Service Provider',
     path: "#",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
@@ -39,10 +36,13 @@ export const SidebarData = [
             title: 'Add a Service',
             path: "/app/service-provider",
         },{
-            title: 'Services Provided by Me',
-            path: "/#",
+            title: 'Requested Services',
+            path: "/app/provided-service",
         },{
-            title: 'View All Requested Services',
+            title: 'Accepted Services',
+            path: "#",
+        },{
+            title: 'Declined Services',
             path: "#",
         }
     ]
@@ -56,11 +56,8 @@ export const SidebarData = [
     cName: "nav-text",
     subNav: [
         {
-            title: 'View All Categories',
+            title: 'All Categories',
             path: "/app/categories",
-        },{
-            title: 'Add a Category',
-            path: "/#",
         }
     ]
 }

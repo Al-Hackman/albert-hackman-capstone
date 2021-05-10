@@ -3,6 +3,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa'
 import * as AiIcons from 'react-icons/ai'
+import { auth } from '../../firebase'
 
 import { SidebarData } from '../SidebarData/SidebarData'
 import './dashboard.scss'
@@ -20,7 +21,7 @@ function Dashboard() {
     const history = useHistory()
 
 
-    console.log(thisCurrentUser)
+    console.log(auth.currentUser.email)
 
     async function handleLogout() {
         setError('')
@@ -59,6 +60,7 @@ function Dashboard() {
                     <li className="navvbar__toggle">
                         <Link to="#" className="navvbar__menu-bars" onClick={showSidebar}>
                             <AiIcons.AiOutlineClose />
+                            <h4 className="navvbar__sign-in-person">{auth.currentUser.email}</h4>
                         </Link>
                     </li>
                     {SidebarData.map((item,index) => {

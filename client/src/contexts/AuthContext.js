@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
         auth.createUserWithEmailAndPassword(email, password)
         .then(u => {
             console.log('created user ', u)
-            writeUserData(u.user.uid, lastName, otherNames, telephone)
+            writeUserData(u.user.uid, lastName, otherNames, telephone,u.user.email)
         }).catch(err =>{
             console.log('user creation err', err)
         })
@@ -54,9 +54,10 @@ export function AuthProvider({ children }) {
         return auth.sendPasswordResetEmail(email)
     }
 
-    function writeUserData(userId, lastName, otherNames, telephone) {
-         firebase.database().ref('users/').push({
-            userId: userId,
+    function writeUserData(userId, lastName, otherNames, telephone, email) {
+         firebase.database().ref('users/' + userId).push({
+            uid: userId,
+            email: email,
             userLastName: lastName,
             userOtherNames: otherNames,
             userTelephone: telephone
