@@ -8,6 +8,7 @@ import { auth } from '../../firebase'
 import './requestService.scss'
 import masonary from '../../assets/images/masonary.jpg'
 import carpentry from '../../assets/images/carpentry.jpg'
+import Dashboard from '../Dashboard/Dashboard'
 
 // import AddCategory from '../AddCategory/AddCategory'
 // import { useEffect } from 'react'
@@ -78,8 +79,9 @@ const RequestService = () => {
 
         const renderService = (s, index) => {
             return(
-               
-                <Link to={'/app/request-service/'+s.id}  key={index} className="reqservice__link">
+               <>
+              
+                <Link to={'/app/request-service/'+s.id}  key={s.id} className="reqservice__link">
                 <div className="reqservice__card">
                     <div className="reqservice__category-image">
                         <img src={s.service.categoryName.toLowerCase() === 'masonary' ? masonary : s.service.categoryName.toLowerCase() === 'carpentry' ? carpentry : ''} alt={ s.service.categoryName} className="reqservice__image"/>
@@ -97,6 +99,7 @@ const RequestService = () => {
                     </div>
                 </div>
                 </Link>
+                </>
             )
         }
 
@@ -106,11 +109,14 @@ const RequestService = () => {
             // if (showModal) {
             // modal = <LoginModal />;
             // }
+            <>
+             <Dashboard />
             <div className="reqservice">
             {/* {showModal ? <ServiceProviderSignUp /> : ''}; */}
             {/* {showModal ? <AddCategory /> : <CategoryList />} */}
             {/* {sModal} */}
             <h1 className="reqservice__page-title">FindMe let's you request for Services in real time</h1>
+            <span className="reqservice__sub-title">Search by Category or location to get the professional to help fix your issue here!</span>
             
             {serviceList ? serviceList.map(renderService) :''}
             {/* <ReactBootStrap.Table>
@@ -137,6 +143,7 @@ const RequestService = () => {
             </button> */}
             {/* {showModal} */}
              </div>
+             </>
         
         );
 }

@@ -9,7 +9,7 @@ import { Link, useHistory, Redirect } from 'react-router-dom';
 import CategoryList from '../CategoryList/CategoryList';
 
 
-function AddCategory() {
+function AddCategory(props) {
 
     const titleRef = useRef()
     const descriptionRef = useRef()
@@ -20,11 +20,11 @@ function AddCategory() {
 
 
 
-    // function showModall() {
-    // // event.preventDefault();
-    // setShowModal(false);
-    // // <CategoryList />
-    //  };
+    function showModall() {
+    // event.preventDefault();
+    setShowModal(false);
+    // <CategoryList />
+     };
 
 
     const handleAddCategory = (e) => {
@@ -33,13 +33,13 @@ function AddCategory() {
         try {
             setError("")
             setLoading(true)
-            setShowModal(true)
+            // setShowModal(true)
             // signup(emailRef.current.value, passwordRef.current.value, lastNameRef.current.value, otherNamesRef.current.value, telephoneRef.current.value)
             firebaseDb.database().ref('serviceCategories/').push({
                 title: titleRef.current.value,
                 description: descriptionRef.current.value
             }).then(task=>{
-                    // setShowModal(false);
+                    setShowModal(false);
                     history.push("/app/categories")
                     console.log('task details added', task)
                 }).catch(err => {{
@@ -51,16 +51,18 @@ function AddCategory() {
             setError('Failed to create an Account')
         } 
 
-        setLoading(false);    
+        // setLoading(false);    
         
         setShowModal(false);
+        // showModall();
+        props.history.push();
     }
     
 
     return (
         
         <section className="addCat">
-            {/* {showModal ? <AddCategory /> : ''}  */}
+            {!showModal ? <CategoryList /> : null} 
             <div className="addCat__wrap">
                 <h1 className="addCat__title">Add Category</h1>
                 <div className="addCat__form-wrap">

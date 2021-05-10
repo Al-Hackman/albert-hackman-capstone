@@ -41,6 +41,7 @@ function App( {location} ) {
         <AuthProvider>
         
             <main>
+                
               <Switch>
 
                   <Route path="/" exact>
@@ -87,6 +88,7 @@ function App( {location} ) {
 
 
                 </Switch>
+
           </main> 
           </AuthProvider>
         </>

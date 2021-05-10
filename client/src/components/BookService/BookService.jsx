@@ -37,7 +37,7 @@ function BookService(props) {
 
         // get logged in users details
       firebaseDb.auth().onAuthStateChanged(user => {
-            console.log('user', user.uid)
+            // console.log('user', user.uid)
             if (user) {
                 
                 getUserData(user.uid)

@@ -3,6 +3,7 @@ import * as ReactBootStrap from 'react-bootstrap'
 import firebaseDb from 'firebase'
 import AddCategory from '../AddCategory/AddCategory.jsx';
 import './CategoryList.scss'
+import Dashboard from '../Dashboard/Dashboard'
 // import AddCategory from '../AddCategory/AddCategory'
 // import { useEffect } from 'react'
 require('react-dom');
@@ -72,8 +73,10 @@ const CategoryList = () => {
             // if (showModal) {
             // modal = <LoginModal />;
             // }
+            <>
+            <Dashboard />
             <div className="table-responsive category-list">
-            {showModal ? <AddCategory /> : ''}
+            {showModal ? <AddCategory /> : null}
             {/* {showModal ? <AddCategory /> : <CategoryList />} */}
             {/* {sModal} */}
             <button
@@ -91,13 +94,14 @@ const CategoryList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                   {todoList ? todoList.map(renderCategory) :''}
+                   {todoList ? todoList.map(renderCategory) :null}
                 </tbody>
         </ReactBootStrap.Table>
 
             
             {/* {showModal} */}
              </div>
+             </>
         
         );
 }
