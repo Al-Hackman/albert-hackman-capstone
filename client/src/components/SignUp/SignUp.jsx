@@ -5,6 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 
 
 
+
 function SignUp() {
 
     const lastNameRef = useRef()
@@ -13,6 +14,7 @@ function SignUp() {
     const telephoneRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
+    const addressRef = useRef()
     const { signup } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -29,7 +31,7 @@ function SignUp() {
         try {
             setError("")
             setLoading(true)
-            signup(emailRef.current.value, passwordRef.current.value, lastNameRef.current.value, otherNamesRef.current.value, telephoneRef.current.value)
+            signup(emailRef.current.value, passwordRef.current.value, lastNameRef.current.value, otherNamesRef.current.value, telephoneRef.current.value, addressRef.current.value)
             history.push("/users/dashboard")
         } catch {
             setError('Failed to create an Account')
@@ -40,6 +42,8 @@ function SignUp() {
 
 
     return (
+    
+       
         <section className="sign-up">
             <div className="sign-up__wrap">
                 <h1 className="sign-up__title">SIGN UP TO GET STARTED</h1>
@@ -68,6 +72,16 @@ function SignUp() {
                         </div>
                         <div className="sign-up__display-wrap">
                             <div className="sign-up__input-wrap">
+                                <label className="sign-up__label">Address</label>
+                                <input type="text" className="sign-up__input sign-up__address" ref={addressRef} required placeholder="address"/>
+                            </div>
+                            {/* <div className="sign-up__input-wrap">
+                                <label className="sign-up__label">Phone Number</label>
+                                <input type="text" className="sign-up__input" ref={telephoneRef} placeholder="phone Number"/>
+                            </div> */}
+                        </div>
+                        <div className="sign-up__display-wrap">
+                            <div className="sign-up__input-wrap">
                                 <label className="sign-up__label">Password</label>
                                 <input type="password" className="sign-up__input" ref={passwordRef} required placeholder="password"/>
                             </div>
@@ -85,6 +99,7 @@ function SignUp() {
                 </div>
             </div>
         </section>
+    
     )
 }
 

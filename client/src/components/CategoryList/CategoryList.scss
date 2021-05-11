@@ -11,5 +11,14 @@
         box-shadow: 5px 5px grey;
         margin-bottom: 3rem;
     }
+
+    @include tablet-up{
+        padding: 2rem 1.5rem;
+    }
+
+    @include laptop-up{
+        padding: 2.5rem 11.25rem;
+    }
+
 }
 

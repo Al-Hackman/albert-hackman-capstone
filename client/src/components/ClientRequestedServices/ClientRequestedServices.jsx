@@ -1,15 +1,17 @@
-// import React from 'react'
 import { auth } from '../../firebase'
 import React, { useRef, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import firebase from 'firebase'
 import * as ReactBootStrap from 'react-bootstrap';
-import './serviceProvided.scss'
+// import './serviceProvided.scss'
 import Dashboard from '../Dashboard/Dashboard';
 
 
 
-function ServiceProvided() {
+function ClientRequestedServices() {
+
+
+
 
 
     // const [requestedList, setrequestedList] = useState();
@@ -59,12 +61,12 @@ function ServiceProvided() {
             for (let id in requests){
                 thisList.push({id: id, service: requests[id]});
             }
-            // thisList = servicethisList.filter(s => {
-            //     return s.id == props.match.params.id
-            // })
-            console.log('requested list...', thisList)
+            let filteredthisList = thisList.filter(s => {
+                return s.service.requestedById == auth.currentUser.uid
+            })
+            console.log('filteredthisList...', filteredthisList)
              
-            setRequestedList(thisList);
+            setRequestedList(filteredthisList);
         });
 
         // serviceRequestedRef.child('value', (snapshot) => {
@@ -119,16 +121,18 @@ function ServiceProvided() {
                     <td>{service.service.requestedByAddress}</td>
                     <td>{service.service.requestedByTelephone}</td>
                     <td>{service.service.description}</td>
-                    <td>{service.service.status == 'Accepted' ? <span className="service-provided__accepted">{service.service.status}</span> : service.service.status == 'Rejected' ? <span className="service-provided__rejected">{service.service.status}</span> : <span className="service-provided__pending">{service.service.status}</span>}</td>
+                    <td>{service.service.status == 'Accepted' ? <span className="client-request__accepted">{service.service.status}</span> : service.service.status == 'Rejected' ? <span className="client-request__rejected">{service.service.status}</span> : <span className="client-request__pending">{service.service.status}</span>}</td>
                     <td><button onClick={() => handleAccept(service)}>Accept</button></td>
                 </tr>
             )
         }
 
 
+
+
+
     return (
-   
-        <>
+         <>
 
             <Dashboard />
             <div className="table-responsive service-provided">
@@ -165,8 +169,7 @@ function ServiceProvided() {
         );
 }
 
-export default ServiceProvided;
-
+export default ClientRequestedServices;
 
 
 

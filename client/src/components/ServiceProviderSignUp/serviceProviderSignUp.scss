@@ -3,22 +3,12 @@
 
 
 .sign-up-sp{
-    background-image: url(../../assets/images/mechanic.jpg);
     width: 100%;
-    background-repeat: repeat-x;
-    animation: slideleft 10s infinite linear;
-    -webkit-animation: slideleft 10s infinite linear;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-attachment: fixed;
-    position: relative;
     min-height: 100vh;
 
     &__title{
         @include lower-header;
         margin: 0px;
-        color: $secondary;
         text-transform: uppercase;
         letter-spacing: 4px;
         text-align: center;
@@ -26,24 +16,22 @@
     }
 
     &__wrap{
-        background: rgba(0, 0, 0, 0.3);
+        background: #f8f9fa;
         min-height: 100vh;
     }
 
     &__form-wrap{
         max-width: 288px;
         margin: 0 auto;
-        position: relative;
-        z-index: 999;
         padding: 2.5em 2em;
         background: rgba(255, 255, 255, 0.04);
+        border-radius: 10px;
         -webkit-box-shadow: -1px 4px 28px 0px rgb(0 0 0 / 75%);
         -moz-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
         box-shadow: -1px 4px 28px 0px rgb(0 0 0 / 75%);
     }
 
     &__label{
-        color: $secondary;
         @include sub-header;
     }
 
@@ -55,13 +43,13 @@
         margin-bottom: 0.8rem;
         border: none;
         padding-left: 0.5rem;
+        border: 1px solid #ddd;
     }
     &__checkbox{
         position: relative;
         display: block;
         letter-spacing: 1px;
         font-size: 14px;
-        color: $secondary;
         margin-bottom: 1rem;
     }
     &__input-check{
@@ -78,7 +66,6 @@
     }
     &__cancel{
         background-color: none;
-        color: $secondary;
         outline: none;
         background-color:  rgba(0, 0, 0, 0);
         border: none;
@@ -103,7 +90,8 @@
             width: 48%;
         }
         &__label{
-           font-size: 1.2rem;
+           font-size: 1rem;
+        //    text-shadow: 1px 1px 0px black;
         }
         &__input{
             height: 2.5rem;

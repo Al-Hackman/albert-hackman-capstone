@@ -17,6 +17,7 @@ import ServiceList from './components/ServiceList/ServiceList'
 import Requestservice from './components/RequestService/RequestService'
 import BookService from './components/BookService/BookService'
 import ServiceProvided from './components/ServiceProvided/ServiceProvided'
+import ClientRequestedService from './components/ClientRequestedServices/ClientRequestedServices'
 import {withRouter} from 'react-router'
 
 
@@ -28,7 +29,8 @@ const exclusionArray = [
   "/app/request-service",
   "/app/service-provider",
   "/app/request-service/:id",
-  "/app/provided-service"
+  "/app/provided-service",
+  "/app/client-request"
 ]
 
 
@@ -86,6 +88,7 @@ function App( {location} ) {
 
                     <Route path="/app/provided-service" component={ServiceProvided} />
 
+                    <Route path="/app/client-request" component={ClientRequestedService} />
 
                 </Switch>
 

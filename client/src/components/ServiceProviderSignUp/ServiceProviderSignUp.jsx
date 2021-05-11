@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import './serviceProviderSignUp.scss';
 import firebaseDb from 'firebase'
 import { auth } from '../../firebase';
+import Dashboard from '../Dashboard/Dashboard'
 
 
 
@@ -81,6 +82,8 @@ function ServiceProviderSignUp() {
 
 
     return (
+        <>
+        <Dashboard />
         <section className="sign-up-sp">
             <div className="sign-up-sp__wrap">
                 <h1 className="sign-up-sp__title">ADD SERVICE</h1>
@@ -137,6 +140,7 @@ function ServiceProviderSignUp() {
                 </div>
             </div>
         </section>
+        </>
     )
 }
 

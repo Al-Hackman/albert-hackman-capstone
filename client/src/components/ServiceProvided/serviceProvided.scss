@@ -4,16 +4,25 @@
 
 
 .service-provided{
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
 
+
+    &__title{
+        @include lower-header;
+        margin: 1.5rem 0px 2rem;
+        text-shadow: 1px 1px 0px black;
+    }
     &__button{
         border-radius: 4px;
         box-shadow: 5px 5px grey;
         margin-bottom: 3rem;
     }
+    // &__accepted{
+
+    // }
 
     @include tablet-up {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1.5rem;
     }
 
 

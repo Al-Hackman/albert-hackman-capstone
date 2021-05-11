@@ -8,6 +8,7 @@ import { auth } from '../../firebase'
 import './requestService.scss'
 import masonary from '../../assets/images/masonary.jpg'
 import carpentry from '../../assets/images/carpentry.jpg'
+import electrician from '../../assets/images/electrician.jpg'
 import Dashboard from '../Dashboard/Dashboard'
 
 // import AddCategory from '../AddCategory/AddCategory'
@@ -81,10 +82,11 @@ const RequestService = () => {
             return(
                <>
               
-                <Link to={'/app/request-service/'+s.id}  key={s.id} className="reqservice__link">
+                <Link to={`/app/request-service/${s.id}`}  key={s.id} className="reqservice__link">
                 <div className="reqservice__card">
                     <div className="reqservice__category-image">
-                        <img src={s.service.categoryName.toLowerCase() === 'masonary' ? masonary : s.service.categoryName.toLowerCase() === 'carpentry' ? carpentry : ''} alt={ s.service.categoryName} className="reqservice__image"/>
+                        <img src={s.service.categoryName.toLowerCase() === 'masonary' ? masonary : s.service.categoryName.toLowerCase() === 'carpentry' 
+                        ? carpentry : s.service.categoryName.toLowerCase() === 'electrician' ? electrician : ''} alt={ s.service.categoryName} className="reqservice__image"/>
                         <span className="reqservice__category-main">{ s.service.categoryName}</span> 
                     </div>
                     <div className="reqservice__title-wrap">
@@ -116,24 +118,11 @@ const RequestService = () => {
             {/* {showModal ? <AddCategory /> : <CategoryList />} */}
             {/* {sModal} */}
             <h1 className="reqservice__page-title">FindMe let's you request for Services in real time</h1>
-            <span className="reqservice__sub-title">Search by Category or location to get the professional to help fix your issue here!</span>
-            
-            {serviceList ? serviceList.map(renderService) :''}
-            {/* <ReactBootStrap.Table>
-                <thead>
-                    <tr>
-                    <th>Company Name</th>
-                    <th>Street Address</th>
-                    <th>City</th>
-                    <th>Postal Code</th>
-                    <th>Rate/Hour</th>
-                    <th>Telephone</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   {serviceList ? serviceList.map(renderService) :''}
-                </tbody>
-        </ReactBootStrap.Table> */}
+            <p className="reqservice__sub-title">Search by Category or location to get the professional to help fix your issue here!</p>
+            <div className="reqservice__card-wrap">
+                    {serviceList ? serviceList.map(renderService) :''}
+            </div>
+         
 
             {/* <button
               onClick={showModall}

@@ -13,12 +13,15 @@ function BookService(props) {
 
     const datetimeRef = useRef()
     const descriptionRef = useRef()
+    const addressRef = useRef()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [serviceList, setServiceList] = useState();
     const [catList, setCatList] = useState();
     const [thisUser, setThisUser] = useState();
     const history = useHistory()
+
+    
 
 
     function getUserData(uid) {
@@ -37,7 +40,7 @@ function BookService(props) {
 
         // get logged in users details
       firebaseDb.auth().onAuthStateChanged(user => {
-            // console.log('user', user.uid)
+            // console.log('user', user)
             if (user) {
                 
                 getUserData(user.uid)
@@ -80,15 +83,10 @@ function BookService(props) {
 
 
 
-
-
-
-
-
     const handleBookService = (e) => {
         e.preventDefault()
 
-       
+            console.log("")
         // try {
             setError("")
             setLoading(true)
@@ -97,6 +95,7 @@ function BookService(props) {
                 createdDate: Date.now(),
                 date: datetimeRef.current.value,
                 description: descriptionRef.current.value,
+                // address: addressRef.current.value,
                 status:"pending",
                 serviceProviderId: props.match.params.id,
                 serviceProviderCompanyName: serviceList[0].service.companyName,
@@ -107,8 +106,10 @@ function BookService(props) {
                 serviceProviderAddress: serviceList[0].service.address,
                 serviceProviderDescription: serviceList[0].service.description,
                 requestedById: auth.currentUser.uid,
+                serviceProviderCategory: serviceList[0].service.categoryName,
                 requestedByFullName:  thisUser[0].user.userLastName +' '+ thisUser[0].user.userOtherNames,
                 requestedByTelephone: thisUser[0].user.userTelephone,
+                requestedByAddress: thisUser[0].user.userAddress
                 // requestedByCity: thisUser[0].user.userCity,
 
             }).then(task=>{
@@ -129,35 +130,25 @@ function BookService(props) {
     return (
 
         <>
-
-            
-               
-
-
-
             <div className="book__wrap">
                 <h1 className="book__title">Book this Service</h1>
+                {/* <p>{serviceList['0'].categoryName}</p> */}
                 <div className="book__form-wrap">
                     <form onSubmit={handleBookService} className= "book__form" encType="multipart/form-data">
                         <h4 className="book__error-message">{error}</h4>
                         <div className="book__display-wrap">
-                            
                                 <label className="book__label">Date</label>
-                                <input type="datetime-local" className="book__input" ref={datetimeRef} />
-                           
-                            
+                                <input type="datetime-local" className="book__input" ref={datetimeRef} />   
                                 <label className="book__label">Description</label>
                                 <textarea rows="3" className="book__textarea" ref={descriptionRef} placeholder="Description"></textarea>
-             
-                        </div>
-                        
+                        </div>    
                         <button className="book__btn" type="submit" value="Submit" disabled={loading}>BOOK SERVICE</button>
                         {/* <button className="sign-up__cancel" type="reset" value="Reset">CANCEL</button> */}
                     </form>
                 </div>
             </div> 
 
-                </>
+        </>
     )
 }
 

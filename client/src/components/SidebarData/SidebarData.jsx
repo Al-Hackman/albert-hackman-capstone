@@ -19,7 +19,7 @@ export const SidebarData = [
             path: "/app/request-service",
         },{
             title: 'My Requested Services',
-            path: "#",
+            path: "/app/client-request",
         }
     ]
 },

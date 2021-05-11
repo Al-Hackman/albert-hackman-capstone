@@ -15,11 +15,11 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState() 
     const [loading, setLoading] = useState(true)
 
-    function signup(email, password, lastName, otherNames, telephone) {
+    function signup(email, password, lastName, otherNames, telephone, address) {
         auth.createUserWithEmailAndPassword(email, password)
         .then(u => {
             console.log('created user ', u)
-            writeUserData(u.user.uid, lastName, otherNames, telephone,u.user.email)
+            writeUserData(u.user.uid, lastName, otherNames, telephone,u.user.email, address)
         }).catch(err =>{
             console.log('user creation err', err)
         })
@@ -54,13 +54,14 @@ export function AuthProvider({ children }) {
         return auth.sendPasswordResetEmail(email)
     }
 
-    function writeUserData(userId, lastName, otherNames, telephone, email) {
+    function writeUserData(userId, lastName, otherNames, telephone, email, address) {
          firebase.database().ref('users/' + userId).push({
             uid: userId,
             email: email,
             userLastName: lastName,
             userOtherNames: otherNames,
-            userTelephone: telephone
+            userTelephone: telephone,
+            userAddress: address
         }).then(u=>{
             console.log('user details added', u)
         }).catch(err => {{
