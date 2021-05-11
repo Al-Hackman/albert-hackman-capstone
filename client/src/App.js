@@ -30,7 +30,8 @@ const exclusionArray = [
   "/app/service-provider",
   "/app/request-service/:id",
   "/app/provided-service",
-  "/app/client-request"
+  "/app/client-request",
+  "/app/request-service/-M_NZXXSo3vhr17DCel7"
 ]
 
 

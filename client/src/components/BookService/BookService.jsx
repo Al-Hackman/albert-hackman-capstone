@@ -123,7 +123,10 @@ function BookService(props) {
         //     setError('Failed to Book an Account')
         // } 
 
-        setLoading(false)       
+        setLoading(false)    
+        
+        e.target.reset();
+        
     }
     
 

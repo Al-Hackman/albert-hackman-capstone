@@ -7,7 +7,7 @@ import Dashboard from '../Dashboard/Dashboard'
 
 
 
-function ServiceProviderSignUp() {
+function ServiceProviderSignUp(props) {
 
 
         const nameRef = useRef()
@@ -80,7 +80,12 @@ function ServiceProviderSignUp() {
             setError('Failed to create an Account')
         } 
 
-        setLoading(false)       
+        setLoading(false)    
+
+        e.target.reset();
+        
+        props.history.push()
+
     }
 
 
@@ -148,4 +153,8 @@ function ServiceProviderSignUp() {
 }
 
 export default ServiceProviderSignUp;
+
+
+
+
  

@@ -63,15 +63,30 @@ function ServiceProvided() {
 
         serviceRequestedRef.child(`${service.id}`).update({
             "status": "Accepted"
-        }).then(service=> {
-            handleMailTo('this is just a test', 'panfohack@gmail.com', 'Testing MailTo')
         }).catch(err=>{
             console.log('err accepting')
         })
 
-        
+    }
+
+    // .then(service=> {
+    //         handleMailTo('this is just a test', 'panfohack@gmail.com', 'Testing MailTo')
+    //     })
+
+    
+      function handleReject (service) {
+        // e.preventDefault()
+
+        serviceRequestedRef.child(`${service.id}`).update({
+            "status": "Rejected"
+        }).catch(err=>{
+            console.log('err accepting')
+        })  
 
     }
+
+
+
 
     function handleMailTo(body_message, email, subject){
         var body_message = body_message;
@@ -97,7 +112,7 @@ function ServiceProvided() {
                     <td>{service.service.requestedByTelephone}</td>
                     <td>{service.service.description}</td>
                     <td>{service.service.status == 'Accepted' ? <span className="service-provided__accepted">{service.service.status}</span> : service.service.status == 'Rejected' ? <span className="service-provided__rejected">{service.service.status}</span> : <span className="service-provided__pending">{service.service.status}</span>}</td>
-                    <td><button onClick={() => handleAccept(service)} className="service-provided__button">Confirm</button></td>
+                    <td><button onClick={() => handleAccept(service)} className="service-provided__button">Accept</button><button onClick={() => handleReject(service)} className="service-provided__button">Reject</button></td>
                 </tr>
             )
         }
