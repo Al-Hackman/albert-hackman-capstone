@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 import firebase from 'firebase'
 import * as ReactBootStrap from 'react-bootstrap';
-// import './serviceProvided.scss'
+import './clientRequestedServices.scss'
 import Dashboard from '../Dashboard/Dashboard';
 
 
@@ -87,7 +87,7 @@ function ClientRequestedServices() {
         // e.preventDefault()
 
         serviceRequestedRef.child(`${service.id}`).update({
-            "status": "Accept"
+            "status": "Accepted"
         }).then(service=> {
             handleMailTo('this is just a test', 'panfohack@gmail.com', 'Testing MailTo')
         }).catch(err=>{
@@ -117,12 +117,12 @@ function ClientRequestedServices() {
             return(
                 <tr key={index}>
                     <td>{service.service.date}</td>
-                    <td>{service.service.requestedByFullName}</td>
-                    <td>{service.service.requestedByAddress}</td>
-                    <td>{service.service.requestedByTelephone}</td>
+                    <td>{service.service.serviceProviderCompanyName}</td>
+                    <td>{service.service.serviceProviderTelephone}</td>
                     <td>{service.service.description}</td>
-                    <td>{service.service.status == 'Accepted' ? <span className="client-request__accepted">{service.service.status}</span> : service.service.status == 'Rejected' ? <span className="client-request__rejected">{service.service.status}</span> : <span className="client-request__pending">{service.service.status}</span>}</td>
-                    <td><button onClick={() => handleAccept(service)}>Accept</button></td>
+                    <td>{service.service.serviceProviderRate}</td>
+                    <td>{service.service.status == 'Accepted' ? <span className="client-requested__accepted">{service.service.status}</span> : service.service.status == 'Rejected' ? <span className="client-requested__rejected">{service.service.status}</span> : <span className="client-requested__pending">{service.service.status}</span>}</td>
+                    {/* <td><button onClick={() => handleAccept(service)} className="client-requested__button">Accept</button></td> */}
                 </tr>
             )
         }
@@ -135,20 +135,20 @@ function ClientRequestedServices() {
          <>
 
             <Dashboard />
-            <div className="table-responsive service-provided">
+            <div className="table-responsive client-requested">
             {/* {showModal ? <AddCategory /> : ''}; */}
             
-            <h2 className="service-provided__title">List of Requested Services:</h2>
-            <ReactBootStrap.Table className= "table table-hover table-striped service-provided__table" >
+            <h2 className="client-requested__title">My Requested Services:</h2>
+            <ReactBootStrap.Table className= "table table-hover table-striped client-requested__table" >
                 <thead>
                     <tr>
                     <th>Date</th>
-                    <th>Requested Person</th>
-                    <th>Requested Person Address</th>
-                    <th>Requested Person Telephone Number</th>
-                    <th>Description of Work</th>
+                    <th>Service Provider</th>
+                    <th>Telephone Number</th>
+                    <th>Description</th>
+                    <th>Rate/hr</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    {/* <th>Action</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -156,12 +156,12 @@ function ClientRequestedServices() {
                 </tbody>
             </ReactBootStrap.Table>
 
-            <button
+            {/* <button
               onClick={showModall}
               className="login__button"
             >
               log in
-            </button>
+            </button> */}
             {/* {showModal} */}
             </div>
         </>
