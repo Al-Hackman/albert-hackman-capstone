@@ -50,12 +50,15 @@ function ServiceProviderSignUp() {
 
         const handleAddService = (e) => {
         e.preventDefault()
+
+            console.log("valueID", catRef.current.value.split('+')[1])
             console.log('event catname', e.currentTarget.getAttribute('categoryname'))
         try {
             setError("")
             setLoading(true)
             // signup(emailRef.current.value, passwordRef.current.value, lastNameRef.current.value, otherNamesRef.current.value, telephoneRef.current.value)
             firebaseDb.database().ref('serviceProviders').push({
+                
                 userId: auth.currentUser.uid,
                 categoryName: catRef.current.value.split('+')[1],
                 categoryId: catRef.current.value.split('+')[0],

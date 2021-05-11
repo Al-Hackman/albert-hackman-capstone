@@ -9,6 +9,10 @@ import './requestService.scss'
 import masonary from '../../assets/images/masonary.jpg'
 import carpentry from '../../assets/images/carpentry.jpg'
 import electrician from '../../assets/images/electrician.jpg'
+import plumbing from '../../assets/images/plumbing.jpg'
+import drywall from '../../assets/images/drywall.jpg'
+import gardener from '../../assets/images/gardener.jpg'
+import painting from '../../assets/images/painting.jpg'
 import Dashboard from '../Dashboard/Dashboard'
 
 // import AddCategory from '../AddCategory/AddCategory'
@@ -85,8 +89,14 @@ const RequestService = () => {
                 <Link to={`/app/request-service/${s.id}`}  key={s.id} className="reqservice__link">
                 <div className="reqservice__card">
                     <div className="reqservice__category-image">
-                        <img src={s.service.categoryName.toLowerCase() === 'masonary' ? masonary : s.service.categoryName.toLowerCase() === 'carpentry' 
-                        ? carpentry : s.service.categoryName.toLowerCase() === 'electrician' ? electrician : ''} alt={ s.service.categoryName} className="reqservice__image"/>
+                        <img src={s.service.categoryName.toLowerCase() === 'masonary' 
+                        ? masonary : s.service.categoryName.toLowerCase() === 'carpentry' 
+                        ? carpentry : s.service.categoryName.toLowerCase() === 'electrician' 
+                        ? electrician : s.service.categoryName.toLowerCase() === 'plumbing' 
+                        ? plumbing : s.service.categoryName.toLowerCase() === 'gardener' 
+                        ? gardener : s.service.categoryName.toLowerCase() === 'drywall' 
+                        ? drywall : s.service.categoryName.toLowerCase() === 'painting' 
+                        ? painting :''} alt={ s.service.categoryName} className="reqservice__image"/>
                         <span className="reqservice__category-main">{ s.service.categoryName}</span> 
                     </div>
                     <div className="reqservice__title-wrap">

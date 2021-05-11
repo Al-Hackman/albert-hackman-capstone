@@ -16,15 +16,15 @@ function AddCategory(props) {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
-    const [showModal, setShowModal] = useState(true);
+    // const [showModal, setShowModal] = useState(true);
 
 
 
-    function showModall() {
-    // event.preventDefault();
-    setShowModal(false);
-    // <CategoryList />
-     };
+    // function showModall() {
+    // // event.preventDefault();
+    // // setShowModal(false);
+    // // <CategoryList />
+    //  };
 
 
     const handleAddCategory = (e) => {
@@ -39,7 +39,7 @@ function AddCategory(props) {
                 title: titleRef.current.value,
                 description: descriptionRef.current.value
             }).then(task=>{
-                    setShowModal(false);
+                    // setShowModal(false);
                     history.push("/app/categories")
                     console.log('task details added', task)
                 }).catch(err => {{
@@ -53,16 +53,16 @@ function AddCategory(props) {
 
         // setLoading(false);    
         
-        setShowModal(false);
+        // setShowModal(false);
         // showModall();
-        props.history.push();
+        // props.history.push();
     }
     
 
     return (
         
         <section className="addCat">
-            {!showModal ? <CategoryList /> : null} 
+            {/* {!showModal ? <CategoryList /> : null}  */}
             <div className="addCat__wrap">
                 <h1 className="addCat__title">Add Category</h1>
                 <div className="addCat__form-wrap">
