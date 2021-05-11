@@ -10,45 +10,18 @@ import Dashboard from '../Dashboard/Dashboard';
 
 function ClientRequestedServices() {
 
-
-
-
-
     // const [requestedList, setrequestedList] = useState();
     const [showModal, setShowModal] = useState(false);
     const [requestedList, setRequestedList] = useState()
     const serviceRequestedRef = firebase.database().ref('requestedService');
+    
+    
     const showModall = (event) => {
     event.preventDefault();
     setShowModal(true);
     // <AddCategory />
      };
 
-
-    //  const modal = <></>;
-    //  const sModal = () => {
-    //     // const modal = <></>;
-    //     if (showModal) {
-    //     return modal = <AddCategory />;
-    // }
-    // return modal = <AddCategory />;
-    // }
-     
-    // const rootRef = firebase.().ref();
-    //     const serviceRequestedRef = rootRef.child('requestedService');
-    //     const usersRef = rootRef.child('users')
-
-    //  function getAllRequestedService(key, cb){
-    //      console.log('function call')
-    //      serviceRequestedRef.child(key).on('child_added', snap => {
-
-    //          console.log('in..........', snap.key)
-    //          let userRef = usersRef.child(snap.key)
-    //          userRef.once('value', cb)
-    //      })
-
-    //  }
-    //  getAllRequestedService('-M_CV99nlV1ieWpQPa_q', snap => console.log('all service requests', snap.val()))
 
     useEffect (() => { 
 
@@ -122,13 +95,10 @@ function ClientRequestedServices() {
                     <td>{service.service.description}</td>
                     <td>{service.service.serviceProviderRate}</td>
                     <td>{service.service.status == 'Accepted' ? <span className="client-requested__accepted">{service.service.status}</span> : service.service.status == 'Rejected' ? <span className="client-requested__rejected">{service.service.status}</span> : <span className="client-requested__pending">{service.service.status}</span>}</td>
-                    {/* <td><button onClick={() => handleAccept(service)} className="client-requested__button">Accept</button></td> */}
+                    {/* <td><button onClick={() => handleAccept(service)} className="client-requested__button">Delete</button></td> */}
                 </tr>
             )
         }
-
-
-
 
 
     return (

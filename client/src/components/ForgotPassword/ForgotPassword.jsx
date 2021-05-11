@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
 
-
-
 function ForgotPassword() {
 
     const emailRef = useRef()
@@ -56,3 +54,8 @@ function ForgotPassword() {
 }
 
 export default ForgotPassword;
+
+
+
+
+

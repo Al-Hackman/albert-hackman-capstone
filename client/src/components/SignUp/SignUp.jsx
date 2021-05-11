@@ -72,22 +72,18 @@ function SignUp() {
                         </div>
                         <div className="sign-up__display-wrap">
                             <div className="sign-up__input-wrap">
-                                <label className="sign-up__label">Address</label>
-                                <input type="text" className="sign-up__input sign-up__address" ref={addressRef} required placeholder="address"/>
-                            </div>
-                            {/* <div className="sign-up__input-wrap">
-                                <label className="sign-up__label">Phone Number</label>
-                                <input type="text" className="sign-up__input" ref={telephoneRef} placeholder="phone Number"/>
-                            </div> */}
-                        </div>
-                        <div className="sign-up__display-wrap">
-                            <div className="sign-up__input-wrap">
                                 <label className="sign-up__label">Password</label>
                                 <input type="password" className="sign-up__input" ref={passwordRef} required placeholder="password"/>
                             </div>
                             <div className="sign-up__input-wrap">
                                 <label className="sign-up__label">Re-Enter Password</label>
                                 <input type="password" className="sign-up__input" ref={passwordConfirmRef} required placeholder="re-enter Password"/>
+                            </div>
+                        </div>
+                        <div className="sign-up__display-wrap">
+                            <div className="sign-up__input-wrap">
+                                <label className="sign-up__label">Address</label>
+                                <input type="text" className="sign-up__input sign-up__address" ref={addressRef} required placeholder="address"/>
                             </div>
                         </div>
                         <label className="sign-up__checkbox">
@@ -104,3 +100,8 @@ function SignUp() {
 }
 
 export default SignUp;
+
+
+
+
+

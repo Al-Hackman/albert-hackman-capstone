@@ -4,16 +4,6 @@
 
 
 .addCat{
-    // background-image: url(../../assets/images/gardener.jpg);
-    // width: 100%;
-    // background-repeat: repeat-x;
-    // animation: slideleft 10s infinite linear;
-    // -webkit-animation: slideleft 10s infinite linear;
-    // background-size: cover;
-    // -webkit-background-size: cover;
-    // -moz-background-size: cover;
-    // background-attachment: fixed;
-    // position: relative;
     min-height: 100vh;
     background-color: rgba($primary, 0.7);
     position: fixed;
@@ -73,8 +63,6 @@
     &__input{
         width: 100%;
         height: 2rem;
-        // display: flex;
-        // justify-content: flex-end;
         margin-bottom: 0.8rem;
         border: none;
         padding-left: 0.5rem;
@@ -99,13 +87,6 @@
         &__error-message{
             @include header;
         }
-        // &__display-wrap{
-        //     // display: flex;
-        //     // justify-content: space-between;
-        // }
-        // &__input-wrap{
-        //     width: 48%;
-        // }
         &__wrap{
             min-height: 75%;
         }
@@ -143,3 +124,7 @@
 	from { background-position: 0 0; }
 	to { background-position: 100% 0; }
 } 
+
+
+
+

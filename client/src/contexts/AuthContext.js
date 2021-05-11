@@ -28,16 +28,7 @@ export function AuthProvider({ children }) {
     function signin(email, password) {
         let loggedInUser = auth.signInWithEmailAndPassword(email, password)
         console.log('loggedInUser', loggedInUser)
-        // console.log('loggedInUser222', auth.currentUser)
-//         auth()
-//   .getUser('7aS56Roa0KTiu0qxEYHgB8KPaa12')
-//   .then((userRecord) => {
-//     // See the UserRecord reference doc for the contents of userRecord.
-//     console.log(`Successfully fetched user data: ${userRecord.toJSON()}`);
-//   })
-//   .catch((error) => {
-//     console.log('Error fetching user data:', error);
-//   });
+  
         return loggedInUser
     }
 
@@ -95,5 +86,7 @@ export function AuthProvider({ children }) {
         </AuthContext.Provider>
     )
 }
+
+
 
 

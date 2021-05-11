@@ -4,13 +4,9 @@ import firebaseDb from 'firebase'
 import AddCategory from '../AddCategory/AddCategory.jsx';
 import './CategoryList.scss'
 import Dashboard from '../Dashboard/Dashboard'
-// import AddCategory from '../AddCategory/AddCategory'
-// import { useEffect } from 'react'
 require('react-dom');
 window.React2 = require('react');
 console.log(window.React1 === window.React2);
-
-
 
 
 
@@ -26,15 +22,6 @@ const CategoryList = () => {
     <AddCategory />
      };
 
-    //  const modal = <></>;
-    //  const sModal = () => {
-    //     // const modal = <></>;
-    //     if (showModal) {
-    //     return modal = <AddCategory />;
-    // }
-    // return modal = <AddCategory />;
-    // }
-     
 
 
     useEffect (() => { 
@@ -49,14 +36,6 @@ const CategoryList = () => {
         });
     }, []);
 
-
-    // const player =[
-
-    //     {position:"Forward", name:"Lebron", team:"Lakers"},
-    //     {position:"Forward", name:"Lebron", team:"Lakers"},
-    //     {position:"Forward", name:"Lebron", team:"Lakers"},
-    //     {position:"Forward", name:"Lebron", team:"Lakers"}
-    // ]
 
         const renderCategory = (cat, index) => {
             return(
@@ -107,3 +86,7 @@ const CategoryList = () => {
 }
 
 export default CategoryList;
+
+
+
+

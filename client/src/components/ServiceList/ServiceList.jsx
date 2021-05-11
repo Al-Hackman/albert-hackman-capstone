@@ -3,8 +3,6 @@ import * as ReactBootStrap from 'react-bootstrap'
 import firebaseDb from 'firebase'
 import AddService from '../AddService/AddService';
 import ServiceProviderSignUp from '../ServiceProviderSignUp/ServiceProviderSignUp'
-// import AddCategory from '../AddCategory/AddCategory'
-// import { useEffect } from 'react'
 require('react-dom');
 window.React2 = require('react');
 console.log(window.React1 === window.React2);
@@ -26,15 +24,7 @@ const ServiceList = () => {
     <AddService />
      };
 
-    //  const modal = <></>;
-    //  const sModal = () => {
-    //     // const modal = <></>;
-    //     if (showModal) {
-    //     return modal = <AddCategory />;
-    // }
-    // return modal = <AddCategory />;
-    // }
-     
+    
 
 
     useEffect (() => { 
@@ -60,14 +50,7 @@ const ServiceList = () => {
     }, []);
 
 
-    // const player =[
-
-    //     {position:"Forward", name:"Lebron", team:"Lakers"},
-    //     {position:"Forward", name:"Lebron", team:"Lakers"},
-    //     {position:"Forward", name:"Lebron", team:"Lakers"},
-    //     {position:"Forward", name:"Lebron", team:"Lakers"}
-    // ]
-
+    
         const renderService = (s, index) => {
             return(
                 <tr key={index}>
@@ -84,10 +67,7 @@ const ServiceList = () => {
 
         return (
 
-            // const modal = <></>;
-            // if (showModal) {
-            // modal = <LoginModal />;
-            // }
+            
             <>
             {showModal ? <ServiceProviderSignUp /> : ''};
             {/* {showModal ? <AddCategory /> : <CategoryList />} */}
@@ -123,3 +103,6 @@ const ServiceList = () => {
 }
 
 export default ServiceList;
+
+
+

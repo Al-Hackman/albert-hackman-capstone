@@ -3,12 +3,6 @@ import './services.scss';
 
 
 
-
-
-
-
-
-
 function Services() {
     return (
         
@@ -64,3 +58,7 @@ function Services() {
 }
 
 export default Services;
+
+
+
+

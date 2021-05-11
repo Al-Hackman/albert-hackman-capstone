@@ -17,7 +17,6 @@
     &__title{
         @include lower-header;
         margin: 0px;
-        // color: $secondary;
         text-transform: uppercase;
         letter-spacing: 4px;
         text-align: center;
@@ -44,10 +43,6 @@
         position: relative;
         z-index: 999;
         padding: 0.5em 2em;
-        // background: rgba(255, 255, 255, 0.04);
-        // -webkit-box-shadow: -1px 4px 28px 0px rgb(0 0 0 / 75%);
-        // -moz-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
-        // box-shadow: -1px 4px 28px 0px rgb(0 0 0 / 75%);
     }
     &__textarea{
         width: 100%;
@@ -61,8 +56,6 @@
     &__input{
         width: 100%;
         height: 2rem;
-        // display: flex;
-        // justify-content: flex-end;
         margin-bottom: 0.8rem;
         border: none;
         padding-left: 0.5rem;
@@ -88,13 +81,6 @@
         &__error-message{
             @include header;
         }
-        // &__display-wrap{
-        //     // display: flex;
-        //     // justify-content: space-between;
-        // }
-        // &__input-wrap{
-        //     width: 48%;
-        // }
         &__wrap{
             min-height: 75%;
         }
@@ -132,3 +118,9 @@
 	from { background-position: 0 0; }
 	to { background-position: 100% 0; }
 } 
+
+
+
+
+
+

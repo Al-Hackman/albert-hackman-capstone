@@ -73,7 +73,7 @@ function ServiceProvided() {
     //         handleMailTo('this is just a test', 'panfohack@gmail.com', 'Testing MailTo')
     //     })
 
-    
+
       function handleReject (service) {
         // e.preventDefault()
 
@@ -84,8 +84,6 @@ function ServiceProvided() {
         })  
 
     }
-
-
 
 
     function handleMailTo(body_message, email, subject){

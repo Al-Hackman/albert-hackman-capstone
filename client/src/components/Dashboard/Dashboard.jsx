@@ -1,13 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Link, useHistory } from 'react-router-dom';
-import * as FaIcons from 'react-icons/fa'
+import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai'
-import { auth } from '../../firebase'
-
-import { SidebarData } from '../SidebarData/SidebarData'
-import './dashboard.scss'
-import { IconContext } from 'react-icons'
+import { auth } from '../../firebase';
+import { SidebarData } from '../SidebarData/SidebarData';
+import './dashboard.scss';
+import { IconContext } from 'react-icons';
 import styled from 'styled-components'
 import SubMenu from '../SidebarData/SubMenu';
 
@@ -82,4 +81,7 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+
+
 

@@ -39,14 +39,7 @@ const RequestService = () => {
     <AddService />
      };
 
-    //  const modal = <></>;
-    //  const sModal = () => {
-    //     // const modal = <></>;
-    //     if (showModal) {
-    //     return modal = <AddCategory />;
-    // }
-    // return modal = <AddCategory />;
-    // }
+
      
     console.log('auth user', auth)
 
@@ -73,14 +66,6 @@ const RequestService = () => {
         });
     }, []);
 
-
-    // const player =[
-
-    //     {position:"Forward", name:"Lebron", team:"Lakers"},
-    //     {position:"Forward", name:"Lebron", team:"Lakers"},
-    //     {position:"Forward", name:"Lebron", team:"Lakers"},
-    //     {position:"Forward", name:"Lebron", team:"Lakers"}
-    // ]
 
         const renderService = (s, index) => {
             return(
@@ -117,10 +102,6 @@ const RequestService = () => {
 
         return (
 
-            // const modal = <></>;
-            // if (showModal) {
-            // modal = <LoginModal />;
-            // }
             <>
              <Dashboard />
             <div className="reqservice">
